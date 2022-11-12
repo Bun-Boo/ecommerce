@@ -10,6 +10,7 @@ const CheckRoute = ({ children }) => {
     !JSON.parse(JSON.parse(localStorage.getItem("persist:root"))?.user)
       .currentUser?.isAdmin
   ) {
+    localStorage.removeItem("persist:root");
     Alert({ name: "Đăng nhập lại.", icon: "warning" });
     return <Navigate to="/login" />;
   }

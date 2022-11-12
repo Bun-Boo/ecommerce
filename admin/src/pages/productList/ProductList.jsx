@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../redux/apiCalls";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
@@ -12,10 +14,13 @@ export default function ProductList() {
     getProducts(dispatch);
   }, [dispatch]);
 
+  const notify = () => toast("Xóa sản phẩm thành công!");
   const handleDelete = (id) => {
     const result = window.confirm("Are you sure you want to delete this item?");
     if (result) {
       deleteProduct(id, dispatch);
+      notify();
+      window.location.replace("/products");
     } else {
       return;
     }
@@ -56,6 +61,18 @@ export default function ProductList() {
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}
+            />
+            <ToastContainer
+              position="top-right"
+              autoClose={800}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
             />
           </>
         );
