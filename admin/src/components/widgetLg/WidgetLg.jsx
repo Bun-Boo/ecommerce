@@ -8,7 +8,11 @@ export default function WidgetLg() {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const res = await userRequest.get("orders");
+        console.log(
+          JSON.parse(localStorage.getItem("persist:root"))?.user?.currentUser
+            ?.accessToken
+        );
+        const res = await userRequest.get("/orders");
         setOrders(res.data);
       } catch {}
     };

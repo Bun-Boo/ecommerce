@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import { mobile } from "../responsive";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -74,10 +75,12 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+
   const handleLogin = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
   };
+
   return (
     <Container>
       <Wrapper>

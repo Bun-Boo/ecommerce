@@ -44,7 +44,7 @@ export default function UserList() {
     { field: "email", headerName: "Email", width: 200 },
     {
       field: "isAdmin",
-      headerName: "Status",
+      headerName: "Admin",
       width: 120,
     },
 
@@ -74,7 +74,7 @@ export default function UserList() {
         rows={users}
         disableSelectionOnClick
         columns={columns}
-        getRowId={(row) => row._id}
+        getRowId={(row) => row._id || row._id + row._id}
         pageSize={8}
         checkboxSelection
       />

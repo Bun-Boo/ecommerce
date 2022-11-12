@@ -16,8 +16,17 @@ export default function NewProduct() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cate, setCate] = useState([]);
+  const [size, setSize] = useState([]);
+  const [color, setColor] = useState([]);
+
   const dispatch = useDispatch();
   const notify = () => toast("Thêm mới thành công!");
+  const handleColor = (e) => {
+    setColor(e.target.value.split(","));
+  };
+  const handleSize = (e) => {
+    setSize(e.target.value.split(","));
+  };
   const handleChange = (e) => {
     setInputs((prev) => {
       return {
@@ -60,7 +69,13 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...inputs, img: downloadURL, categories: cate };
+          const product = {
+            ...inputs,
+            img: downloadURL,
+            categories: cate,
+            color: color,
+            size: size,
+          };
           addProduct(product, dispatch);
           if (addProduct(product, dispatch)) {
             notify();
@@ -106,6 +121,24 @@ export default function NewProduct() {
             type="number"
             placeholder="100"
             onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Colors</label>
+          <input
+            name="color"
+            type="text"
+            placeholder="black,red,blue,...."
+            onChange={handleColor}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Sizes</label>
+          <input
+            name="size"
+            type="text"
+            placeholder="M,L,XL,...."
+            onChange={handleSize}
           />
         </div>
         <div className="addProductItem">

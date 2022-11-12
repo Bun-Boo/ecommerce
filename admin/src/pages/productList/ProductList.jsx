@@ -69,7 +69,7 @@ export default function ProductList() {
         rows={products}
         disableSelectionOnClick
         columns={columns}
-        getRowId={(row) => row._id}
+        getRowId={(row) => row._id || row._id + row.title}
         pageSize={8}
         checkboxSelection
       />

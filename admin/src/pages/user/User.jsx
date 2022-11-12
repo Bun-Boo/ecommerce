@@ -1,13 +1,15 @@
 import {
-  CalendarToday,
-  LocationSearching,
+  AccountCircleOutlined,
   MailOutline,
   PermIdentity,
-  PhoneAndroid,
-  Publish,
 } from "@material-ui/icons";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { updateUser } from "../../redux/apiCalls";
+import { userRequest } from "../../requestMethods";
+
+import { ToastContainer, toast } from "react-toastify";
 import "./user.css";
 
 export default function User() {
@@ -17,6 +19,37 @@ export default function User() {
   const user = useSelector((state) =>
     state.user.users.find((user) => user._id === userId)
   );
+  const [inputs, setInputs] = useState({});
+  const [userupdate, setUserud] = useState({});
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+  const notify = () => toast("Cập nhật thông tin user thành công!");
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const userUd = { ...inputs };
+    const result = window.confirm("Are you sure you want to update this user?");
+    if (result) {
+      updateUser(userId, userUd, dispatch);
+      notify();
+      getUs();
+    } else {
+      return;
+    }
+  };
+  const getUs = async () => {
+    try {
+      const res = await userRequest.get("/users/find/" + userId);
+      setUserud(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="user">
@@ -35,33 +68,38 @@ export default function User() {
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">{user.username}</span>
-              <span className="userShowUserTitle">Customer</span>
+              <span className="userShowUsername">
+                {user?.username || userupdate.username}
+              </span>
+              {user?.isAdmin === true || userupdate.isAdmin === true ? (
+                <span className="userShowUserTitle">Admin</span>
+              ) : (
+                <span className="userShowUserTitle">Customer</span>
+              )}
             </div>
           </div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">{user.username}</span>
+              <span className="userShowInfoTitle">
+                {user?.username || userupdate.username}
+              </span>
             </div>
-            {/* <div className="userShowInfo">
-              <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1999</span>
-            </div>
-            <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
-              <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
-            </div> */}
+              <AccountCircleOutlined className="userShowIcon" />
+              <span className="userShowInfoTitle">
+                Admin:
+                {user?.isAdmin.toString() || userupdate.isAdmin.toString()}
+              </span>
+            </div>
+
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">{user.email}</span>
+              <span className="userShowInfoTitle">
+                {user?.email || userupdate.email}
+              </span>
             </div>
-            {/* <div className="userShowInfo">
-              <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
-            </div> */}
           </div>
         </div>
         <div className="userUpdate">
@@ -72,8 +110,10 @@ export default function User() {
                 <label>Username</label>
                 <input
                   type="text"
-                  placeholder={user.username}
+                  name="username"
+                  placeholder={user?.username}
                   className="userUpdateInput"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -81,33 +121,47 @@ export default function User() {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder={user.email}
+                  name="email"
+                  placeholder={user?.email}
                   className="userUpdateInput"
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="userUpdateItem">
                 <label>Password</label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="********"
                   className="userUpdateInput"
+                  onChange={handleChange}
                 />
+              </div>
+              <div className="userUpdateItem">
+                <label>Admin</label>
+                <select name="isAdmin" id="active" onChange={handleChange}>
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
               </div>
             </div>
             <div className="userUpdateRight">
-              {/* <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div> */}
-              <button className="userUpdateButton">Update</button>
+              <button className="userUpdateButton" onClick={handleUpdate}>
+                Update
+              </button>
+              <ToastContainer
+                position="top-right"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
             </div>
           </form>
         </div>

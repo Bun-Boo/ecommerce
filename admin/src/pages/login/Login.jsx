@@ -1,16 +1,25 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/apiCalls";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const handleClick = (e) => {
-    e.preventDefault();
 
-    login(dispatch, { username, password });
+  const user = useSelector((state) => state.user);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    await login(dispatch, { username, password });
   };
+
+  console.log("user::", user);
+
+  if (user?.currentUser?.accessToken) {
+    window.location.replace("/");
+  }
+
   return (
     <div
       style={{

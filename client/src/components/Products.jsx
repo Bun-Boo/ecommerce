@@ -70,7 +70,7 @@ const Products = ({ cat, filter, sort }) => {
             />
           ))
         : products
-            .slice(0, 8)
+            .slice(0, 15)
             .map((popularProduct) => (
               <ProductItem
                 popularProduct={popularProduct}

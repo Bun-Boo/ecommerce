@@ -25,21 +25,21 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/448490/item/vngoods_06_448490.jpg?width=1600&impolicy=quality_75",
-    title: "SHIRT STYLE!",
+    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/453353/item/vngoods_65_453353.jpg?width=1008&impolicy=quality_75",
+    title: "WOMEN CLOTHES",
     cat: "women",
   },
   {
     id: 2,
-    img: "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/431599/item/goods_69_431599.jpg?width=1008&impolicy=quality_75",
-    title: "LOUNGEWEAR LOVE",
+    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455680/item/vngoods_69_455680.jpg?width=1008&impolicy=quality_75",
+    title: "MEN CLOTHES",
     cat: "man",
   },
   {
     id: 3,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450520/item/vngoods_12_450520.jpg?width=1600&impolicy=quality_75",
-    title: "LIGHT JACKETS",
-    cat: "jeans",
+    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/449058/item/vngoods_31_449058.jpg?width=1008&impolicy=quality_75",
+    title: "BABY CLOTHES",
+    cat: "baby",
   },
 ];
 

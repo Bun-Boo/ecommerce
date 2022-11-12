@@ -52,6 +52,8 @@ const Success = () => {
     data && createOrder();
   }, [cart, data, currentUser]);
 
+  console.log(data);
+  console.log(orderId);
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `/`;

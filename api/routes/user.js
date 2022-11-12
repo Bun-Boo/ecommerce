@@ -6,11 +6,12 @@ const {
 } = require("./verifyToken");
 
 const router = require("express").Router();
-
+var AES = require("crypto-js/aes");
+var SHA256 = require("crypto-js/sha256");
 //Update
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
   if (req.body.password) {
-    req.body.password = CryptoJS.AES.encrypt(
+    req.body.password = AES.encrypt(
       req.body.password,
       process.env.PASSWORD_SEC
     ).toString();
