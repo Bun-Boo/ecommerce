@@ -33,7 +33,7 @@ export const categories = [
     id: 2,
     img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455680/item/vngoods_69_455680.jpg?width=1008&impolicy=quality_75",
     title: "MEN CLOTHES",
-    cat: "man",
+    cat: "men",
   },
   {
     id: 3,
