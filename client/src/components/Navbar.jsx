@@ -119,7 +119,7 @@ const Navbar = () => {
         <Right>
           {user ? (
             <>
-              <MenuUser>Welcom, {user.username}</MenuUser>
+              <MenuUser>Welcom, <b>{user.username}</b></MenuUser>
               <MenuLogout onClick={handleLogout}>
                 <ExitToAppOutlined />
               </MenuLogout>

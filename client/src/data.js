@@ -1,21 +1,21 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/448490/item/vngoods_06_448490.jpg?width=1600&impolicy=quality_75",
+    img: "https://img.pikbest.com/png-images/qiantu/cartoon-fashion-shopping-beauty-pictures_2516414.png!w700wp",
     title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "f5fafd",
   },
   {
     id: 2,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/450530/item/vngoods_27_450530.jpg?width=1600&impolicy=quality_75",
+    img: "https://dony.vn/wp-content/uploads/2022/03/thue-nguoi-mau-chup-thoi-trang.jpg",
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fcf1ed",
   },
   {
     id: 3,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/451724/item/vngoods_35_451724.jpg?width=1600&impolicy=quality_75",
+    img: "https://media.vov.vn/sites/default/files/styles/large/public/2022-11/ton-33.jpg",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fbf0f4",
@@ -25,19 +25,19 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/453353/item/vngoods_65_453353.jpg?width=1008&impolicy=quality_75",
+    img: "https://leeandtee.vn/uploads/images/tin-tuc-tong-hop/mau-thoi-trang-hoan-thien-anh-vintage-1.jpg",
     title: "WOMEN CLOTHES",
     cat: "women",
   },
   {
     id: 2,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/455680/item/vngoods_69_455680.jpg?width=1008&impolicy=quality_75",
+    img: "https://images2.thanhnien.vn/uploaded/thuyttl/2020_11_16/fashionman_hai/img_7753_NRVI.jpg?width=500",
     title: "MEN CLOTHES",
     cat: "men",
   },
   {
     id: 3,
-    img: "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/449058/item/vngoods_31_449058.jpg?width=1008&impolicy=quality_75",
+    img: "https://lh4.googleusercontent.com/TE03Jj_53joR8L3AuEqydzvamMomSIcfa_SFtiRZhssVRP7xcXNXhjLtAYLBxidAo2EQ9POKLzP_F5KmNUTjWQZEroULeZcg9HmpCH0KZTJYyyVJNIwdU-mDhqN7pg1t6djzLsGh",
     title: "BABY CLOTHES",
     cat: "baby",
   },

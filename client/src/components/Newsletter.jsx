@@ -52,7 +52,7 @@ const Newsletter = () => {
     <Container>
       <Title>Clothes love</Title>
       <Description>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Wish you happy shopping!!!
       </Description>
       <InputContainer>
         <Input placeholder="Your Email!" type="email" required />

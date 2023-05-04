@@ -79,10 +79,7 @@ const Footer = () => {
       <Left>
         <Logo>HAIR</Logo>
         <Desc>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci,
-          provident ipsam? Dolores sequi eum incidunt temporibus, amet quas quo
-          doloremque explicabo unde illum cumque dolorum eius mollitia, deserunt
-          voluptates facilis?
+          Hi, I'm Hai. Have a great day ^^
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
@@ -132,7 +129,7 @@ const Footer = () => {
         </ContactItem>
         <ContactItem>
           <AccountBoxOutlined style={{ marginRight: "10px" }} />
-          https://github.com/Bun-Boo
+          <a href="https://github.com/Bun-Boo" style={{textDecoration:"none", color:"#000"}}>https://github.com/Bun-Boo</a>
         </ContactItem>
       </Right>
     </Container>
